@@ -1,0 +1,350 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    color: #fff;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 0.15em;
+    overflow-x: hidden;
+}
+
+/* =========================
+   BOOT SEQUENCE
+========================= */
+.boot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #000;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: bootFade 2.5s forwards;
+}
+
+.boot-text {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 2;
+    letter-spacing: 0.4em;
+    text-align: center;
+}
+
+@keyframes bootFade {
+    0% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { opacity: 0; visibility: hidden; }
+}
+
+/* =========================
+   BACKGROUND GRID ANIMATION
+========================= */
+.grid-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: -3;
+    animation: gridMove 20s linear infinite;
+    opacity: 0.3;
+}
+
+@keyframes gridMove {
+    from { transform: translate(0,0); }
+    to { transform: translate(-60px,-60px); }
+}
+
+/* =========================
+   NOISE + SCANLINES
+========================= */
+.noise {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+
+    background-image: url("https://www.transparenttextures.com/patterns/noise.png");
+    opacity: 0.05;
+    animation: noiseMove 0.2s infinite;
+}
+
+@keyframes noiseMove {
+    0% { transform: translate(0,0); }
+    50% { transform: translate(-1%,1%); }
+    100% { transform: translate(0,0); }
+}
+
+.scanlines {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 998;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    opacity: 0.2;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    text-align: center;
+    padding: 120px 20px 80px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+}
+
+.line {
+    width: 200px;
+    height: 1px;
+    background: #aaa;
+    margin: 20px auto;
+    position: relative;
+}
+
+.line::after {
+    content: "";
+    width: 2px;
+    height: 10px;
+    background: #aaa;
+    position: absolute;
+    left: 50%;
+    top: 100%;
+    transform: translateX(-50%);
+}
+
+.tagline {
+    font-size: 12px;
+    color: #aaa;
+    letter-spacing: 0.4em;
+}
+
+/* =========================
+   GRID
+========================= */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #111;
+    min-height: 600px;
+}
+
+.left, .right {
+    padding: 80px 60px;
+    border-right: 1px solid #111;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: all 0.4s ease;
+}
+
+.right {
+    border-right: none;
+}
+
+
+
+/* =========================
+   CONTENT
+========================= */
+.content {
+    text-align: center;
+    max-width: 420px;
+}
+
+h2 {
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    margin-bottom: 30px;
+    transition: 0.4s;
+}
+
+.sigil {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+}
+
+.sigil img {
+    max-width: 250px;
+    filter: brightness(1.2);
+}
+
+.desc {
+    font-size: 11px;
+    color: #777;
+    line-height: 2;
+    letter-spacing: 0.3em;
+    margin-top: 40px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .left {
+        border-right: none;
+        border-bottom: 1px solid #111;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+}
+
+/* =========================
+   MANIFESTO SECTION
+========================= */
+.manifesto {
+    text-align: center;
+    padding: 120px 20px;
+    border-top: 1px solid #111;
+    border-bottom: 1px solid #111;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.manifesto-content {
+    max-width: 650px;
+}
+
+.manifesto h2 {
+    font-size: 22px;
+    letter-spacing: 0.5em;
+    margin-bottom: 40px;
+}
+
+.manifesto p {
+    font-size: 11px;
+    color: #777;
+    line-height: 2.2;
+    letter-spacing: 0.3em;
+}
+
+/* =========================
+   GALLERY (MISSING FIX)
+========================= */
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;              /* mellan bilder */
+    background: #000000;
+
+    padding: 20px 20px;    /* 🔥 detta ger luft TOPP & BOTTEN */
+}
+
+.img-box {
+    height: 300px;
+    overflow: hidden;
+    background: #000;
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* viktigt */
+    filter: grayscale(100%) contrast(1.1);
+    transition: 0.5s ease;
+}
+
+.img-box:hover img {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 10px;
+    color: #727272;
+    letter-spacing: 0.4em;
+    border-top: 1px solid #111;
+    background: #000;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 1000;
+
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #111;
+}
+
+.nav-left {
+    font-size: 10px;
+    color: #666;
+    letter-spacing: 0.4em;
+}
+
+.nav-right {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-right a {
+    font-size: 10px;
+    color: #aaa;
+    text-decoration: none;
+    letter-spacing: 0.3em;
+    transition: 0.3s ease;
+}
+
+.nav-right a:hover {
+    color: #fff;
+    letter-spacing: 0.4em;
+}
