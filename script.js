@@ -1,24 +1,21 @@
-window.addEventListener("DOMContentLoaded", () => {
+window.onload = function () {
 
     const gate = document.getElementById("ageGate");
     const yesBtn = document.getElementById("yesBtn");
     const noBtn = document.getElementById("noBtn");
 
+    console.log("LOADED:", gate, yesBtn, noBtn);
+
     if (!gate || !yesBtn || !noBtn) return;
 
-    const verified = localStorage.getItem("ageVerified");
-
-    // 🔥 VISA ENDAST OM INTE VERIFIERAD
-    if (verified !== "true") {
-        gate.style.display = "flex";
-    }
-
-    yesBtn.onclick = () => {
+    yesBtn.onclick = function () {
         localStorage.setItem("ageVerified", "true");
         gate.style.display = "none";
     };
 
-    noBtn.onclick = () => {
+    noBtn.onclick = function () {
         window.location.href = "exit.html";
     };
-});
+
+};
+
