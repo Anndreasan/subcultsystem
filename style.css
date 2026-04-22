@@ -153,13 +153,13 @@ body {
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    border-top: 1px solid #111;
+    border-top: none
     min-height: 600px;
 }
 
 .left, .right {
     padding: 80px 60px;
-    border-right: 1px solid #111;
+    border-right: none
 
     display: flex;
     justify-content: center;
@@ -233,7 +233,7 @@ h2 {
 .manifesto {
     text-align: center;
     padding: 120px 20px;
-    border-top: 1px solid #111;
+    border-top: none
     border-bottom: 1px solid #111;
 
     display: flex;
@@ -298,12 +298,37 @@ h2 {
     text-align: center;
     padding: 60px 20px;
     font-size: 10px;
-    color: #727272;
+    color: #ffffff;
     letter-spacing: 0.4em;
-    border-top: 1px solid #111;
+    border-top: none
+}
+footer {
+    padding: 20px;
     background: #000;
+    border-top: none
 }
 
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.socials a {
+    color: #fff;
+    margin-left: 15px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.socials {
+    margin-top: 15px; /* 👈 detta skapar avstånd på höjden */
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+}
+.socials a:hover {
+    opacity: 0.6;
+}
 /* =========================
    NAVBAR
 ========================= */
@@ -322,7 +347,7 @@ h2 {
 
     background: rgba(0,0,0,0.6);
     backdrop-filter: blur(8px);
-    border-bottom: 1px solid #111;
+    border-bottom: none
 }
 
 .nav-left {
@@ -347,4 +372,105 @@ h2 {
 .nav-right a:hover {
     color: #fff;
     letter-spacing: 0.4em;
+}
+
+.merch {
+    padding: 100px 40px;
+    border-top: none
+}
+
+.merch-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+}
+
+/* TEXT */
+.merch-text h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.merch-text p {
+    font-size: 12px;
+    line-height: 1.8;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+/* BUTTON */
+.store-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid #fff;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    transition: 0.3s;
+}
+
+.store-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* IMAGE */
+.merch-image img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.info {
+    padding: 100px 40px;
+    border-top: none
+}
+
+.info-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* vänster större */
+    gap: 80px;
+    align-items: start;
+}
+
+/* LEFT */
+.info-left h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    letter-spacing: 0.2em;
+}
+
+.info-left p {
+    font-size: 12px;
+    line-height: 1.8;
+    color: #aaa;
+}
+
+/* RIGHT */
+.info-right h3 {
+    font-size: 16px;
+    letter-spacing: 0.2em;
+    margin-bottom: 15px;
+}
+
+.info-right p {
+    font-size: 11px;
+    color: #aaa;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.sponsor-mail {
+    font-size: 12px;
+    color: #fff;
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 2px;
+    transition: 0.3s;
+}
+
+.sponsor-mail:hover {
+    opacity: 0.6;
 }
