@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUBCULTSYSTEM — CALENDAR</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+    <div class="nav-left">@subcultsystem</div>
+
+    <div class="nav-right">
+        <a href="calendar.html">CALENDAR</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="join-us.html">JOIN US</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>CALENDAR</h1>
+    <div class="line"></div>
+    <p class="tagline">SELECT A DATE TO ACCESS EVENTS</p>
+</section>
+
+<!-- CALENDAR -->
+<section class="calendar-section">
+
+    <div class="calendar-header">
+        <button onclick="prevMonth()">‹</button>
+        <h2 id="monthLabel"></h2>
+        <button onclick="nextMonth()">›</button>
+    </div>
+
+    <div class="calendar-grid" id="calendar"></div>
+
+</section>
+
+<!-- EVENT INFO -->
+<section class="event-panel" id="eventPanel">
+    <h2 id="eventTitle">NO EVENT SELECTED</h2>
+    <p id="eventDesc">CLICK A DATE TO VIEW DETAILS</p>
+
+    <a href="#" class="store-btn" id="ticketBtn">BUY TICKETS</a>
+</section>
+
+<script>
+const calendar = document.getElementById("calendar");
+const monthLabel = document.getElementById("monthLabel");
+
+const eventPanel = document.getElementById("eventPanel");
+const eventTitle = document.getElementById("eventTitle");
+const eventDesc = document.getElementById("eventDesc");
+
+const ticketBtn = document.getElementById("ticketBtn");
+
+let date = new Date();
+
+const events = {
+    "2026-04-05": {
+        title: "SUBCULT NIGHT",
+        desc: "UNDERGROUND EVENT. SOUND SYSTEM EXPERIENCE. 18+ ONLY.",
+        link: "#"
+    },
+    "2026-04-12": {
+        title: "SYSTEM BREAK",
+        desc: "VISUAL + SOUND INSTALLATION. LIMITED ENTRY.",
+        link: "#"
+    },
+    "2026-04-20": {
+        title: "NOISE SESSION",
+        desc: "EXPERIMENTAL AUDIO NIGHT. PURE ATMOSPHERE.",
+        link: "#"
+    }
+};
+
+function renderCalendar() {
+    calendar.innerHTML = "";
+
+    const year = date.getFullYear();
+    const month = date.getMonth();
+
+    const firstDay = new Date(year, month, 1).getDay();
+    const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    monthLabel.innerText = date.toLocaleString('default', { month: 'long' }).toUpperCase() + " " + year;
+
+    for (let i = 0; i < firstDay; i++) {
+        const empty = document.createElement("div");
+        calendar.appendChild(empty);
+    }
+
+    for (let d = 1; d <= daysInMonth; d++) {
+        const cell = document.createElement("div");
+        cell.classList.add("day");
+
+        const fullDate = `${year}-${String(month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+
+        cell.innerHTML = `<span>${d}</span>`;
+
+        if (events[fullDate]) {
+            cell.classList.add("event");
+        }
+
+        cell.onclick = () => {
+            if (events[fullDate]) {
+                const ev = events[fullDate];
+                eventTitle.innerText = ev.title;
+                eventDesc.innerText = ev.desc;
+                ticketBtn.href = ev.link;
+            } else {
+                eventTitle.innerText = "NO EVENT";
+                eventDesc.innerText = "NO DATA FOR THIS DATE";
+                ticketBtn.href = "#";
+            }
+        };
+
+        calendar.appendChild(cell);
+    }
+}
+
+function nextMonth() {
+    date.setMonth(date.getMonth() + 1);
+    renderCalendar();
+}
+
+function prevMonth() {
+    date.setMonth(date.getMonth() - 1);
+    renderCalendar();
+}
+
+renderCalendar();
+</script>
+
+</body>
+</html>
