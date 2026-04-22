@@ -12,35 +12,56 @@ body {
     overflow-x: hidden;
 }
 
-/* =========================
-   BOOT SEQUENCE
-========================= */
-.boot {
+/* FULLSCREEN OVERLAY */
+.age-gate {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
+    inset: 0;
     background: #000;
-    z-index: 9999;
+    z-index: 99999;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: bootFade 3.5s forwards;
 }
 
-.boot-text {
-    font-size: 12px;
-    color: #aaa;
-    line-height: 2;
-    letter-spacing: 0.4em;
+/* BOX */
+.age-box {
     text-align: center;
+    max-width: 500px;
 }
 
-@keyframes bootFade {
-    0% { opacity: 1; }
-    80% { opacity: 1; }
-    100% { opacity: 0; visibility: hidden; }
+.age-box h2 {
+    font-size: 18px;
+    letter-spacing: 0.4em;
+    margin-bottom: 20px;
+}
+
+.age-box p {
+    font-size: 11px;
+    color: #777;
+    line-height: 2;
+    margin-bottom: 30px;
+}
+
+/* BUTTONS */
+.age-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.age-buttons button {
+    background: none;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.age-buttons button:hover {
+    background: #fff;
+    color: #000;
 }
 
 /* =========================
@@ -419,7 +440,7 @@ footer {
 }
 
 .calendar-section {
-    padding: 100px 40px;
+    padding: 70px 20px; /* mindre padding */
     text-align: center;
 }
 
@@ -427,12 +448,12 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    margin-bottom: 40px;
+    gap: 25px; /* mindre gap */
+    margin-bottom: 25px;
 }
 
 .calendar-header h2 {
-    font-size: 22px;
+    font-size: 18px; /* mindre rubrik */
     letter-spacing: 0.4em;
 }
 
@@ -440,21 +461,31 @@ footer {
     background: none;
     border: 1px solid #fff;
     color: #fff;
-    padding: 10px 15px;
+    padding: 6px 10px; /* mindre knapp */
     cursor: pointer;
+    font-size: 10px;
+    transition: 0.3s;
+}
+
+.calendar-header button:hover {
+    background: #fff;
+    color: #000;
 }
 
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 10px;
+    gap: 6px; /* tajtare grid */
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .day {
-    padding: 20px;
+    padding: 12px; /* mindre rutor */
     border: 1px solid #111;
     cursor: pointer;
     transition: 0.3s;
+    font-size: 11px;
 }
 
 .day:hover {
@@ -466,13 +497,15 @@ footer {
 }
 
 .event-panel {
-    padding: 80px 40px;
+    padding: 50px 20px; /* mindre panel */
     text-align: center;
+    max-width: 500px;
+    margin: 40px auto 0;
 }
 
 .event-panel h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
+    font-size: 18px;
+    margin-bottom: 15px;
     letter-spacing: 0.4em;
 }
 
@@ -480,5 +513,5 @@ footer {
     color: #777;
     font-size: 11px;
     line-height: 2;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
