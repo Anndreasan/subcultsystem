@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Us - Subcult System</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+<div class="grid-bg"></div>
+<div class="noise"></div>
+<div class="scanlines"></div>
+
+<!-- NAV -->
+<nav class="nav">
+    <a href="index.html" class="nav-left">SUBCULTSYSTEM</a>
+
+    <div class="nav-right">
+        <a href="calendar.html">CALENDAR</a>
+        <a href="contact.html">CONTACT</a>
+        <a href="joinus.html">JOIN US</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+    <h1>JOIN US</h1>
+    <div class="line"></div>
+    <p class="tagline">ACCESS THE COMMUNITY</p>
+</section>
+
+<!-- JOIN SECTION -->
+<section class="join">
+    <div class="join-wrapper">
+
+        <div class="join-left">
+            <h2>JOIN THE COMMUNITY</h2>
+
+            <p>
+                SUBCULT SYSTEM IS EXPANDING BEYOND OBSERVATION.<br>
+                BECOME PART OF A NETWORK THAT OPERATES IN SILENCE AND SIGNAL.<br><br>
+
+                ACCESS IS SELECTIVE.<br>
+                NOT EVERYONE IS ACCEPTED.<br><br>
+
+                THIS IS FOR THOSE WHO WANT MORE THAN JUST VISITING.<br>
+                THIS IS FOR THOSE WHO WANT TO BELONG.
+            </p>
+        </div>
+
+        <div class="join-right">
+            <h2>WHAT YOU GET</h2>
+
+            <p>
+                • EVENT ACCESS (FASHION / NIGHT / PRIVATE)<br>
+                • EARLY DROPS & MERCH<br>
+                • COMMUNITY NETWORK<br>
+                • PRIVATE INVITATIONS<br><br>
+
+                STATUS IS NOT GIVEN.<br>
+                IT IS EARNED THROUGH PRESENCE.
+            </p>
+
+            <button class="join-btn" id="openJoinForm">
+    REQUEST ACCESS
+</button>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <p>@subcultsystem 2026</p>
+</footer>
+
+<div class="modal" id="joinModal">
+    <div class="modal-box">
+
+        <h2>JOIN APPLICATION</h2>
+
+        <input type="text" placeholder="NAME">
+        <input type="email" placeholder="EMAIL">
+
+        <!-- 🔥 NEW: GENDER -->
+        <select class="modal-input">
+            <option value="" disabled selected>GENDER</option>
+            <option>MALE</option>
+            <option>FEMALE</option>
+            <option>NON-BINARY</option>
+            <option>PREFER NOT TO SAY</option>
+        </select>
+
+        <!-- 🔥 NEW: AGE -->
+        <input 
+            type="number" 
+            class="modal-input"
+            placeholder="AGE (18+ ONLY)"
+            min="18"
+        >
+
+        <textarea placeholder="WHY DO YOU WANT TO JOIN?"></textarea>
+        <textarea placeholder="WHAT IS YOUR INTENT?"></textarea>
+        <textarea placeholder="DESCRIBE YOUR MINDSET"></textarea>
+
+        <button class="store-btn send-btn">SEND</button>
+        <button class="store-btn close-btn" id="closeJoinForm">CLOSE</button>
+
+    </div>
+</div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
