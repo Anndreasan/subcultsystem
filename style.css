@@ -731,6 +731,28 @@ footer {
     letter-spacing: 0.2em;
 }
 
+.modal-title h2 {
+    margin: 0;
+    line-height: 1;
+}
+
+.modal-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.modal-logo {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    opacity: 0.8;
+}
+
 .send-btn,
 .close-btn {
     margin-top: 10px;
