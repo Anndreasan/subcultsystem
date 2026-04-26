@@ -30,57 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+const hamburger = document.getElementById("hamburger");
+const nav = document.querySelector(".nav-right");
 
-
-
-document.addEventListener("DOMContentLoaded", () => {
-
-    const openBtn = document.getElementById("openJoinForm");
-    const closeBtn = document.getElementById("closeJoinForm");
-    const modal = document.getElementById("joinModal");
-
-    if (!openBtn || !closeBtn || !modal) return;
-
-    // OPEN
-    openBtn.addEventListener("click", () => {
-        modal.style.display = "flex";
-    });
-
-    // CLOSE
-    closeBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
-
-    // click outside box = close
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-
+hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    nav.classList.toggle("active");
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-    const openBtn = document.getElementById("openJoinForm");
-    const closeBtn = document.getElementById("closeJoinForm");
-    const modal = document.getElementById("joinModal");
 
-    if (!openBtn || !closeBtn || !modal) return;
 
-    // öppna
-    openBtn.addEventListener("click", () => {
-        modal.style.display = "flex";
-    });
 
-    // stäng
-    closeBtn.addEventListener("click", () => {
-        modal.style.display = "none";
-    });
 
-    // klick utanför box
-    modal.addEventListener("click", (e) => {
-        if (e.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-});
+
