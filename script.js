@@ -56,3 +56,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+const openGallery = document.getElementById("openGallery");
+const galleryModal = document.getElementById("galleryModal");
+const closeGallery = document.getElementById("closeGallery");
+
+if (openGallery && galleryModal) {
+    openGallery.addEventListener("click", () => {
+        galleryModal.style.display = "block";
+        document.body.style.overflow = "hidden"; // 🔥 stop scroll bakgrund
+    });
+}
+
+if (closeGallery && galleryModal) {
+    closeGallery.addEventListener("click", () => {
+        galleryModal.style.display = "none";
+        document.body.style.overflow = "auto"; // 🔥 tillbaka scroll
+    });
+}
